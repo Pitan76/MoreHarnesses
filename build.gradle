@@ -31,8 +31,10 @@ subprojects {
         // Mojang Mappings
         //mappings loom.officialMojangMappings()
 
-        // Fabric Yarn Mappings
-        mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
+        mappings loom.layered() {
+            it.mappings("net.fabricmc:yarn:${rootProject.yarn_mappings}:v2")
+            it.mappings file("../mappings/121-1fix.tiny")
+        }
 
         modApi "net.pitan76:mcpitanlib-common-${rootProject.mcpitanlib_version}"
     }
@@ -139,15 +141,9 @@ allprojects {
 
     tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
-        if (project.name == "neoforge") {
-            options.release = 17
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
-        } else {
-            options.release = 8
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
-        }
+        options.release = 21
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     java {
