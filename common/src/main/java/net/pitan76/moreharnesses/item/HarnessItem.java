@@ -9,9 +9,9 @@ import net.pitan76.mcpitanlib.api.util.CompatActionResult;
 import net.pitan76.mcpitanlib.api.util.StackActionResult;
 import net.pitan76.mcpitanlib.api.util.TextUtil;
 
-public class ExampleItem extends CompatItem {
+public class HarnessItem extends CompatItem {
 
-    public ExampleItem(CompatibleItemSettings settings) {
+    public HarnessItem(CompatibleItemSettings settings) {
         super(settings);
     }
 

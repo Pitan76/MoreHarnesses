@@ -1,6 +1,5 @@
 package net.pitan76.moreharnesses;
 
-import net.pitan76.moreharnesses.block.Blocks;
 import net.pitan76.moreharnesses.item.ItemGroups;
 import net.pitan76.moreharnesses.item.Items;
 import net.pitan76.mcpitanlib.api.CommonModInitializer;
@@ -20,7 +19,6 @@ public class MoreHarnesses extends CommonModInitializer {
         registry = super.registry;
 
         ItemGroups.init();
-        Blocks.init();
         Items.init();
     }
 

@@ -8,10 +8,10 @@ import static net.pitan76.moreharnesses.MoreHarnesses.registry;
 
 public class ItemGroups {
 
-    public static CreativeTabBuilder EXAMPLE_ITEMS = CreativeTabBuilder.create(_id("example_items"))
-            .setIcon(() -> ItemStackUtil.create(Items.EXAMPLE_ITEM.get()));
+    public static CreativeTabBuilder MORE_HARNESSES = CreativeTabBuilder.create(_id("main"))
+            .setIcon(() -> ItemStackUtil.create(Items.IRON_HARNESS.get()));
 
     public static void init() {
-        registry.registerItemGroup(EXAMPLE_ITEMS);
+        registry.registerItemGroup(MORE_HARNESSES);
     }
 }
