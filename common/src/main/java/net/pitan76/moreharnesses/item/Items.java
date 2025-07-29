@@ -1,6 +1,7 @@
 package net.pitan76.moreharnesses.item;
 
 import net.minecraft.item.Item;
+import net.minecraft.util.DyeColor;
 import net.pitan76.mcpitanlib.api.item.v2.ItemSettingsBuilder;
 import net.pitan76.mcpitanlib.api.registry.result.RegistryResult;
 
@@ -13,8 +14,12 @@ public class Items {
             .addGroup(ItemGroups.MORE_HARNESSES);
 
     public static RegistryResult<Item> IRON_HARNESS;
+    public static RegistryResult<Item> GOLDEN_HARNESS;
+    public static RegistryResult<Item> DIAMOND_HARNESS;
 
     public static void init() {
-        IRON_HARNESS = registry.registerItem(_id("example_item"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("example_item"))));
+        IRON_HARNESS = registry.registerItem(_id("iron_harness"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("iron_harness")), DyeColor.WHITE, 0.5f));
+        GOLDEN_HARNESS = registry.registerItem(_id("golden_harness"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("golden_harness")), DyeColor.YELLOW, 0.75f));
+        DIAMOND_HARNESS = registry.registerItem(_id("diamond_harness"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("diamond_harness")), DyeColor.LIGHT_BLUE, 1.0f));
     }
 }
