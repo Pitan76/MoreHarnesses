@@ -18,8 +18,8 @@ public class Items {
     public static RegistryResult<Item> DIAMOND_HARNESS;
 
     public static void init() {
-        IRON_HARNESS = registry.registerItem(_id("iron_harness"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("iron_harness")), DyeColor.WHITE, 0.5f));
-        GOLDEN_HARNESS = registry.registerItem(_id("golden_harness"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("golden_harness")), DyeColor.YELLOW, 0.75f));
-        DIAMOND_HARNESS = registry.registerItem(_id("diamond_harness"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("diamond_harness")), DyeColor.LIGHT_BLUE, 1.0f));
+        IRON_HARNESS = registry.registerItem(_id("iron_harness"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("iron_harness")), DyeColor.WHITE, 0.05d));
+        GOLDEN_HARNESS = registry.registerItem(_id("golden_harness"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("golden_harness")), DyeColor.YELLOW, 0.075d));
+        DIAMOND_HARNESS = registry.registerItem(_id("diamond_harness"), () -> new HarnessItem(STANDARD_ITEM_SETTINGS.build(_id("diamond_harness")), DyeColor.LIGHT_BLUE, 0.1d));
     }
 }

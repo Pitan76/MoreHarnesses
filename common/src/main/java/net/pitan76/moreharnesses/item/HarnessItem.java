@@ -8,14 +8,14 @@ import net.pitan76.mcpitanlib.api.item.v2.CompatibleItemSettings;
 
 public class HarnessItem extends Item {
 
-    private final float additionalSpeed;
+    private final double additionalSpeed;
 
-    public HarnessItem(CompatibleItemSettings settings, DyeColor color, float additionalSpeed) {
+    public HarnessItem(CompatibleItemSettings settings, DyeColor color, double additionalSpeed) {
         super(settings.build().component(DataComponentTypes.EQUIPPABLE, EquippableComponent.ofHarness(color)));
         this.additionalSpeed = additionalSpeed;
     }
 
-    public float getAdditionalSpeed() {
+    public double getAdditionalSpeed() {
         return additionalSpeed;
     }
 }
