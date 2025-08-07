@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "examplemod:item/example_block"
+    "model": "moreharnesses:item/iron_harness"
   }
 }
