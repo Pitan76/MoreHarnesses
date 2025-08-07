@@ -1,6 +1,5 @@
 {
-  "item.examplemod.example_item": "Example Item",
-  "block.examplemod.example_block": "Example Block",
-
-  "itemGroup.examplemod.example_items": "Example Items"
+  "item.moreharnesses.iron_harness": "Iron Harness",
+  "item.moreharnesses.gold_harness": "Gold Harness",
+  "item.moreharnesses.diamond_harness": "Diamond Harness"
 }

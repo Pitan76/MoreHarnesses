@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "moreharnesses:item/golden_harness"
+    "layer0": "moreharnesses:item/gold_harness"
   }
 }

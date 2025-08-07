@@ -1,5 +1,6 @@
 package net.pitan76.moreharnesses;
 
+import net.pitan76.moreharnesses.item.EquipmentAssets;
 import net.pitan76.moreharnesses.item.ItemGroups;
 import net.pitan76.moreharnesses.item.Items;
 import net.pitan76.mcpitanlib.api.CommonModInitializer;
@@ -17,6 +18,8 @@ public class MoreHarnesses extends CommonModInitializer {
     public void init() {
         INSTANCE = this;
         registry = super.registry;
+
+        EquipmentAssets.init();
 
         ItemGroups.init();
         Items.init();
