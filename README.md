@@ -14,7 +14,7 @@ By default, the Happy Ghast moves rather slowly. This mod introduces harnesses t
     - Emerald Harness
     - Netherite Harness
 - Each harness provides **speed** and **armor** bonuses to the Happy Ghast.
-- Stats for each harness are **fully configurable** via  
+- Stats for each harness are **configurable** via  
   `game_directory/config/moreharnesses.json`.
 
 
