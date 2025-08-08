@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "moreharnesses:copper_harness",
+    "moreharnesses:iron_harness",
+    "moreharnesses:gold_harness",
+    "moreharnesses:diamond_harness",
+    "moreharnesses:emerald_harness",
+    "moreharnesses:netherite_harness"
+  ]
+}

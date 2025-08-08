@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "harness",
+  "key": {
+    "H": "#minecraft:harnesses",
+    "#": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "###",
+    "#H#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "moreharnesses:iron_harness"
+  }
+}
