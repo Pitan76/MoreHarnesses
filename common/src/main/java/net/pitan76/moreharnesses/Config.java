@@ -18,12 +18,12 @@ public class Config {
     public static void init() {
         if (initialized) return;
         initialized = true;
-        config.setDouble("copper_harness_speed", 0.035d);
-        config.setDouble("iron_harness_speed", 0.050d);
-        config.setDouble("gold_harness_speed", 0.075d);
-        config.setDouble("diamond_harness_speed", 0.100d);
-        config.setDouble("emerald_harness_speed", 0.150d);
-        config.setDouble("netherite_harness_speed", 0.150d);
+        config.setDouble("copper_harness_speed", 0.020d);
+        config.setDouble("iron_harness_speed", 0.030d);
+        config.setDouble("gold_harness_speed", 0.050d);
+        config.setDouble("diamond_harness_speed", 0.075d);
+        config.setDouble("emerald_harness_speed", 0.100d);
+        config.setDouble("netherite_harness_speed", 0.100d);
 
         config.setDouble("copper_harness_armor", 1.0d);
         config.setDouble("iron_harness_armor", 2.0d);
