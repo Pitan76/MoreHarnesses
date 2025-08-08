@@ -22,7 +22,7 @@
   ],
   "depends": {
     "fabricloader": "*",
-    "minecraft": "\u003e\u003d1.16",
+    "minecraft": ">=1.21.6",
     "mcpitanlib": "*"
   }
 }
