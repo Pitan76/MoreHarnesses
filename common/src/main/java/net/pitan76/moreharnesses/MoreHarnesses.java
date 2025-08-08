@@ -19,6 +19,8 @@ public class MoreHarnesses extends CommonModInitializer {
         INSTANCE = this;
         registry = super.registry;
 
+        Config.init();
+
         EquipmentAssets.init();
 
         ItemGroups.init();

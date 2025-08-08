@@ -1,5 +1,8 @@
 {
+  "item.moreharnesses.copper_harness": "銅のハーネス",
   "item.moreharnesses.iron_harness": "鉄のハーネス",
   "item.moreharnesses.gold_harness": "金のハーネス",
-  "item.moreharnesses.diamond_harness": "ダイヤモンドのハーネス"
+  "item.moreharnesses.diamond_harness": "ダイヤモンドのハーネス",
+  "item.moreharnesses.emerald_harness": "エメラルドのハーネス",
+    "item.moreharnesses.netherite_harness": "ネザライトのハーネス"
 }

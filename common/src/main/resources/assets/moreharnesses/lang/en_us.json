@@ -1,5 +1,8 @@
 {
+  "item.moreharnesses.copper_harness": "Copper Harness",
   "item.moreharnesses.iron_harness": "Iron Harness",
   "item.moreharnesses.gold_harness": "Gold Harness",
-  "item.moreharnesses.diamond_harness": "Diamond Harness"
+  "item.moreharnesses.diamond_harness": "Diamond Harness",
+  "item.moreharnesses.emerald_harness": "Emerald Harness",
+  "item.moreharnesses.netherite_harness": "Netherite Harness"
 }

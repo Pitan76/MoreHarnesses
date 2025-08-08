@@ -17,7 +17,14 @@ public class EquipmentAssetUtil {
 
     public static EquippableComponent ofHarness(RegistryKey<EquipmentAsset> key) {
         RegistryEntryLookup<EntityType<?>> registryEntryLookup = Registries.createEntryLookup(Registries.ENTITY_TYPE);
-        return EquippableComponent.builder(EquipmentSlot.BODY).equipSound(SoundEvents.ENTITY_HAPPY_GHAST_EQUIP).model(key).allowedEntities(registryEntryLookup.getOrThrow(EntityTypeTags.CAN_EQUIP_HARNESS)).equipOnInteract(true).canBeSheared(true).shearingSound(Registries.SOUND_EVENT.getEntry(SoundEvents.ENTITY_HAPPY_GHAST_UNEQUIP)).build();
+        return EquippableComponent.builder(EquipmentSlot.BODY)
+                .equipSound(SoundEvents.ENTITY_HAPPY_GHAST_EQUIP)
+                .model(key)
+                .allowedEntities(registryEntryLookup.getOrThrow(EntityTypeTags.CAN_EQUIP_HARNESS))
+                .equipOnInteract(true)
+                .canBeSheared(true)
+                .shearingSound(Registries.SOUND_EVENT.getEntry(SoundEvents.ENTITY_HAPPY_GHAST_UNEQUIP))
+                .build();
     }
 
     public static RegistryKey<EquipmentAsset> register(CompatIdentifier id) {

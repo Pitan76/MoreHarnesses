@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class HappyGhastEntityMixin {
 
     @Unique
-    private static final CompatIdentifier moreHarnesses$id = MoreHarnesses._id("happy_ghast_flying_speed");
+    private static final CompatIdentifier moreHarnesses$id = MoreHarnesses._id("flying_speed");
 
     @Inject(method = "addPassenger(Lnet/minecraft/entity/player/PlayerEntity;)V", at = @At("TAIL"))
     private void addPassenger(PlayerEntity player, CallbackInfo ci) {
