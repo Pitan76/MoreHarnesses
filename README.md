@@ -38,3 +38,5 @@ By default, the Happy Ghast moves rather slowly. This mod introduces harnesses t
 
 ```
 
+## Contributor (Thanks!)
+[Translator] xz123456xz(ChaTian) Translated to Traditional Chinese (zh_tw.json)
