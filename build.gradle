@@ -1,7 +1,7 @@
 plugins {
-    id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.10-SNAPSHOT" apply false
-    id 'com.matthewprenger.cursegradle' version '1.+'
+    id "architectury-plugin" version "3.5-SNAPSHOT"
+    id "dev.architectury.loom-no-remap" version "1.14-SNAPSHOT" apply false
+    id 'com.matthewprenger.cursegradle' version '1.5.0'
     id "com.modrinth.minotaur" version "2.+"
 }
 
@@ -10,13 +10,9 @@ architectury {
 }
 
 subprojects {
-    apply plugin: "dev.architectury.loom"
+    apply plugin: "dev.architectury.loom-no-remap"
     apply plugin: "com.modrinth.minotaur"
     apply plugin: "com.matthewprenger.cursegradle"
-
-    loom {
-        silentMojangMappingsLicense()
-    }
 
     repositories {
         maven { url "https://maven.neoforged.net/releases" }
@@ -27,16 +23,7 @@ subprojects {
 
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-
-        // Mojang Mappings
-        //mappings loom.officialMojangMappings()
-
-        mappings loom.layered() {
-            it.mappings("net.fabricmc:yarn:${rootProject.yarn_mappings}:v2")
-            it.mappings file("../mappings/121-1fix.tiny")
-        }
-
-        modApi "net.pitan76:mcpitanlib-common-${rootProject.mcpitanlib_version}"
+        api "net.pitan76:mcpitanlib-fabric-${rootProject.mcpitanlib_version}"
     }
 
     if (name in rootProject.enabled_platforms.split(",")) {
@@ -56,11 +43,9 @@ subprojects {
                     if (modLoader == "neoforge")
                         addGameVersion "NeoForge"
 
-                    addGameVersion '1.21.6'
-                    addGameVersion '1.21.7'
-                    addGameVersion '1.21.8'
-                    addGameVersion '1.21.9'
-                    addGameVersion '1.21.10'
+                    addGameVersion '26.1'
+                    addGameVersion '26.1.1'
+                    addGameVersion '26.1.2'
 
                     relations {
                         if (modLoader == "fabric")
@@ -69,7 +54,7 @@ subprojects {
                         requiredDependency 'mcpitanlibarch'
                     }
 
-                    mainArtifact(tasks.remapJar)
+                    mainArtifact(tasks.jar)
                 }
                 options {
                     forgeGradleIntegration = false
@@ -84,10 +69,10 @@ subprojects {
                 projectId = 'more-harnesses'
                 versionNumber = project.mod_version + "-" + modLoader
 
-                gameVersions = ['1.21.6', '1.21.7', '1.21.8', '1.21.9', '1.21.10']
+                gameVersions = ['26.1', '26.1.1', '26.1.2']
 
                 versionType = 'beta'
-                uploadFile = tasks.remapJar
+                uploadFile = tasks.jar
                 changelog = rootProject.changelog + "\nMCPitanLib version: " + mcpitanlib_version.split(":")[1]
                 loaders = [modLoader]
                 dependencies {
@@ -106,7 +91,7 @@ allprojects {
     apply plugin: "architectury-plugin"
     apply plugin: "maven-publish"
 
-    archivesBaseName = rootProject.archives_base_name
+    base.archivesName = rootProject.archives_base_name
     mod_name = rootProject.mod_name
     mod_id = rootProject.mod_id
     version = rootProject.mod_version
@@ -118,9 +103,9 @@ allprojects {
 
     tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
-        options.release = 21
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        options.release = 25
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
     }
 
     java {

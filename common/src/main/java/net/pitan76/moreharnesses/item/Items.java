@@ -1,6 +1,6 @@
 package net.pitan76.moreharnesses.item;
 
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 import net.pitan76.mcpitanlib.api.item.v2.ItemSettingsBuilder;
 import net.pitan76.mcpitanlib.api.registry.result.RegistryResult;
 import net.pitan76.moreharnesses.Config;

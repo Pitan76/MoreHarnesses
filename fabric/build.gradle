@@ -1,5 +1,5 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id "com.gradleup.shadow" version "9.4.0"
 }
 
 architectury {
@@ -17,19 +17,27 @@ configurations {
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
     developmentFabric.extendsFrom common
+
+    apiElements {
+        outgoing.artifacts.clear()
+        outgoing.artifact(shadowJar)
+    }
+    runtimeElements {
+        outgoing.artifacts.clear()
+        outgoing.artifact(shadowJar)
+    }
 }
 
-project.archivesBaseName = project.archivesBaseName + "-fabric"
+project.base.archivesName = project.base.archivesName.get() + "-fabric"
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_version}"
-    modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
+    implementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    api "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_version}"
 
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    common(project(path: ":common")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 
-    modApi "net.pitan76:mcpitanlib-fabric-${rootProject.mcpitanlib_version}"
+    api "net.pitan76:mcpitanlib-fabric-${rootProject.mcpitanlib_version}"
 }
 
 processResources {
@@ -46,15 +54,12 @@ processResources {
 }
 
 shadowJar {
-    configurations = [project.configurations.shadowCommon]
-    archiveClassifier.set "dev-shadow"
-}
+    dependsOn(jar)
+    mainSpec.sourcePaths.clear()
+    from(zipTree(jar.archiveFile))
 
-remapJar {
-    // injectAccessWidener = true
-    inputFile.set shadowJar.archiveFile
-    dependsOn shadowJar
-    archiveClassifier.set null
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier.set(null)
 }
 
 jar {

@@ -17,12 +17,11 @@
     ]
   },
   "mixins": [
-    "moreharnesses.mixins.json",
     "moreharnesses-common.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",
-    "minecraft": ">=1.21.6",
-    "mcpitanlib": ">3.3.0"
+    "minecraft": ">=26.1",
+    "mcpitanlib": ">3.6.2"
   }
 }
