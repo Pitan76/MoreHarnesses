@@ -26,60 +26,62 @@ subprojects {
         api "net.pitan76:mcpitanlib-fabric-${rootProject.mcpitanlib_version}"
     }
 
-    if (name in rootProject.enabled_platforms.split(",")) {
-        var modLoader = name
+    afterEvaluate {
+        if (name in rootProject.enabled_platforms.split(",")) {
+            var modLoader = name
 
-        if (System.getenv("CURSEFORGE_TOKEN") != null) {
-            curseforge {
-                apiKey = System.getenv("CURSEFORGE_TOKEN")
-                project {
-                    id = '1323049'
-                    changelog = rootProject.changelog + "\nMCPitanLib version: " + mcpitanlib_version.split(":")[1]
-                    releaseType = 'beta'
+            if (System.getenv("CURSEFORGE_TOKEN") != null) {
+                curseforge {
+                    apiKey = System.getenv("CURSEFORGE_TOKEN")
+                    project {
+                        id = '1323049'
+                        changelog = rootProject.changelog + "\nMCPitanLib version: " + mcpitanlib_version.split(":")[1]
+                        releaseType = 'beta'
 
-                    if (modLoader == "fabric")
-                        addGameVersion "Fabric"
-
-                    if (modLoader == "neoforge")
-                        addGameVersion "NeoForge"
-
-                    addGameVersion '26.1'
-                    addGameVersion '26.1.1'
-                    addGameVersion '26.1.2'
-
-                    relations {
                         if (modLoader == "fabric")
-                            requiredDependency "fabric-api"
+                            addGameVersion "Fabric"
 
-                        requiredDependency 'mcpitanlibarch'
+                        if (modLoader == "neoforge")
+                            addGameVersion "NeoForge"
+
+                        addGameVersion '26.1'
+                        addGameVersion '26.1.1'
+                        addGameVersion '26.1.2'
+
+                        relations {
+                            if (modLoader == "fabric")
+                                requiredDependency "fabric-api"
+
+                            requiredDependency 'mcpitanlibarch'
+                        }
+
+                        mainArtifact(tasks.named("shadowJar").get().archiveFile.get().asFile)
                     }
+                    options {
+                        forgeGradleIntegration = false
+                    }
+                }
 
-                    mainArtifact(tasks.jar)
-                }
-                options {
-                    forgeGradleIntegration = false
-                }
             }
 
-        }
+            if (System.getenv("MODRINTH_TOKEN") != null) {
+                modrinth {
+                    token = System.getenv("MODRINTH_TOKEN")
+                    projectId = 'more-harnesses'
+                    versionNumber = project.mod_version + "-" + modLoader
 
-        if (System.getenv("MODRINTH_TOKEN") != null) {
-            modrinth {
-                token = System.getenv("MODRINTH_TOKEN")
-                projectId = 'more-harnesses'
-                versionNumber = project.mod_version + "-" + modLoader
+                    gameVersions = ['26.1', '26.1.1', '26.1.2']
 
-                gameVersions = ['26.1', '26.1.1', '26.1.2']
+                    versionType = 'beta'
+                    uploadFile = tasks.named("shadowJar").get().archiveFile.get().asFile
+                    changelog = rootProject.changelog + "\nMCPitanLib version: " + mcpitanlib_version.split(":")[1]
+                    loaders = [modLoader]
+                    dependencies {
+                        if (modLoader == "fabric")
+                            required.project "P7dR8mSH" // Fabric API
 
-                versionType = 'beta'
-                uploadFile = tasks.jar
-                changelog = rootProject.changelog + "\nMCPitanLib version: " + mcpitanlib_version.split(":")[1]
-                loaders = [modLoader]
-                dependencies {
-                    if (modLoader == "fabric")
-                        required.project "P7dR8mSH" // Fabric API
-
-                    required.project "uNRoUnGT" // MCPitanLib
+                        required.project "uNRoUnGT" // MCPitanLib
+                    }
                 }
             }
         }
